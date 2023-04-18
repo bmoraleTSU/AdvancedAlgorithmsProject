@@ -1,13 +1,15 @@
 from bryce_algorithm import boyer_moore_algorithm
 from mohammad_algorithm import xx_algorithm
-from timeit import default_timer as timer
+from execution_timer import ExecutionTimer
+import time
 
 #Driver Code
-start = timer()
+timer = ExecutionTimer()
+timer.start()
 boyer_moore_algorithm()
-end = timer()
-print(f'The boyer_moore_algorithm() took {end - start:.2} seconds to complete on the given text.')
-start = timer()
+timer.end()
+print(f'The boyer_moore_algorithm() took {timer.print_exec_time():.2} seconds to complete on the given text.')
+timer.start()
 xx_algorithm()
-end = timer()
-print(f'The xx_algorithm took {end - start:.2} seconds to complete on the given text.')
+timer.end()
+print(f'The xx_algorithm took {timer.print_exec_time():.2} seconds to complete on the given text.')
