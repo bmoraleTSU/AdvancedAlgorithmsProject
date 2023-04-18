@@ -1,15 +1,37 @@
 from bryce_algorithm import boyer_moore_algorithm
 from mohammad_algorithm import xx_algorithm
 from execution_timer import ExecutionTimer
-import time
 
-#Driver Code
+def read_file(path):
+    """
+    Function that takes in a path to find a file at then returns the contents of that file.
+
+    Args:
+    path: A string that is the path to the file that you are attempting to read.
+
+    Returns:
+    A string of all of the text found in the given file.
+    """
+    try:
+        with open(path, mode='r') as file:
+            all_text = file.read()
+
+        return all_text
+    except FileNotFoundError as err:
+        print(f'Unable to process file because it could not be found: {err}')
+
+
+#Create timer object
 timer = ExecutionTimer()
+#Driver Code
+SEARCH_PATTERN = "ababada"
+FILE = "input.txt"
+
 timer.start()
-boyer_moore_algorithm()
+boyer_moore_algorithm(read_file(FILE), SEARCH_PATTERN)
 timer.end()
-print(f'The boyer_moore_algorithm() took {timer.print_exec_time():.2} seconds to complete on the given text.')
+print(f'The boyer_moore_algorithm took {timer.print_exec_time():.2f} milliseconds to complete on the given text.')
 timer.start()
 xx_algorithm()
 timer.end()
-print(f'The xx_algorithm took {timer.print_exec_time():.2} seconds to complete on the given text.')
+print(f'The xx_algorithm took {timer.print_exec_time():.2f} milliseconds to complete on the given text.')

@@ -17,4 +17,10 @@ class ExecutionTimer:
         self._end = timer()
 
     def print_exec_time(self):
-        return self._end - self._start
+        """
+        A function that returns the time difference between the end() function being called and the start() function being called.
+        
+        Returns:
+        The time calculated by the two function calls and converts the units from seconds to milliseconds
+        """
+        return (self._end - self._start)*1000
