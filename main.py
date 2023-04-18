@@ -1,13 +1,13 @@
-from bryce_algorithm import sample_algo
+from bryce_algorithm import boyer_moore_algorithm
 from mohammad_algorithm import xx_algorithm
 from timeit import default_timer as timer
 
 #Driver Code
 start = timer()
-sample_algo()
+boyer_moore_algorithm()
 end = timer()
-print(f'The sample_algo took {end - start:.2} seconds to complete on the given text.')
+print(f'The boyer_moore_algorithm() took {end - start:.2} seconds to complete on the given text.')
 start = timer()
 xx_algorithm()
 end = timer()
-print(f'This xx_algorithm took {end - start:.2} seconds to complete on the given text.')
+print(f'The xx_algorithm took {end - start:.2} seconds to complete on the given text.')

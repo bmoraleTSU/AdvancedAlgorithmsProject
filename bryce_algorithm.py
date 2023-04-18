@@ -1,4 +1,4 @@
 #This is where I will code the algorithm that I am creating
 
-def sample_algo():
-    print("The sample_algo() is importing correctly!")
+def boyer_moore_algorithm():
+    print("The boyer_moore_algorithm() is importing correctly!")
