@@ -20,18 +20,17 @@ def read_file(path):
     except FileNotFoundError as err:
         print(f'Unable to process file because it could not be found: {err}')
 
-
 #Create timer object
 timer = ExecutionTimer()
 #Driver Code
 SEARCH_PATTERN = "ababada"
 FILE = "input.txt"
-
 timer.start()
-boyer_moore_algorithm(read_file(FILE), SEARCH_PATTERN)
+occurrences = boyer_moore_algorithm(read_file(FILE), SEARCH_PATTERN)
 timer.end()
-print(f'The boyer_moore_algorithm took {timer.print_exec_time():.2f} milliseconds to complete on the given text.')
+print(f'The pattern was found in the given text file {occurrences} times when using the Boyer-Moore Algorithm.')
+print(f'The Boyer-Moore Algorithm took {timer.print_exec_time():.2f} milliseconds to complete on the given text.')
 timer.start()
-xx_algorithm()
+xx_algorithm(FILE, SEARCH_PATTERN)
 timer.end()
 print(f'The xx_algorithm took {timer.print_exec_time():.2f} milliseconds to complete on the given text.')
