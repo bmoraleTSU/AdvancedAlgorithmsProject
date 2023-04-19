@@ -18,7 +18,7 @@ def boyer_moore_algorithm(text, pattern):
         return 0
     else:
         #Limit the alphabet because we know that there are no other characters in the text we are using
-        #Initialize to 
+        #Initialize to the length of the pattern so that if none of these characters are found in the pattern then we skip a whole sequence
         skip = {'a': m, 'b': m, 'c': m, 'd': m, 'e': m}
         #Find last(c) for each character in the pattern
         for k in range(m-1):
@@ -26,19 +26,18 @@ def boyer_moore_algorithm(text, pattern):
         #Initalize the spot in the text we are looking at (the first possible ending of a pattern in the text)
         i = m - 1
         count = 0
-        #Loop through entire text
+        #Loop through the entire text
         while i < n:
             j = m - 1
             k = i
-            #Loop through entire pattern to see if we have found a match in the text
+            #Loop through the entire pattern to see if we have found a match in the text
             while j >= 0 and text[k] == pattern[j]:
                 j -= 1
                 k -= 1          
             if j == -1:
                 #We have found a pattern match!
                 count += 1
-            #Grab the last occurrence of the character or default to the length of the pattern if the character is missing in the dict
-            #Skip ahead in the text by that last(c) value
+            #Skip ahead in the text by that last(c) value or the length of the pattern if the character isn't in the dict
             i += skip.get(text[i], m)
     
     return count
