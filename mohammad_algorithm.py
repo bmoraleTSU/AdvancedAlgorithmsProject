@@ -14,17 +14,3 @@ for i in range(len(text)-len(pattern)+1):
 
 # Return the number of occurrences
 return occurrences
-
-# open the input file and read its contents
-with open("input.txt", "r") as file:
-    text = file.read()
-
-# define the pattern to search for
-pattern = "ababada"
-
-# call the naive_search function to search for the pattern in the text file
-count, duration = naive_search(pattern, text)
-
-# print the results of the search
-print(f"Number of occurrences of '{pattern}': {count}")
-print(f"Duration: {duration:.3f} ms")
