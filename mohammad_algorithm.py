@@ -3,8 +3,7 @@
 def naive_search(pattern, txt):
     m = len(pattern)
     n = len(txt)
-    count =0
-    start_time = time.time()
+    count = 0
     for i in range(n - m + 1):
         j = 0
         while(j < m):
@@ -14,8 +13,6 @@ def naive_search(pattern, txt):
  
         if (j == m):
           count += 1
-  end_time = time.time()
-    print(f"Naive search took {(end_time-start_time)*1000:.4f} milliseconds")
     return count
 
 
