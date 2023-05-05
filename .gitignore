@@ -1,2 +1,5 @@
 #Ignore __pycache_ folder due to it not being necessary to run the code
 __pycache__/
+
+#Ignore PDF report created
+*.pdf
