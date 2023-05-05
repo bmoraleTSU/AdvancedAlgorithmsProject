@@ -1,17 +1,13 @@
 #This is where you will type your code for you algorithm
 # define a function to perform a naive search for a pattern in a text file
 def naive_search(pattern, text):
-    
-    # Initialize a counter to count pattern occurrences
-    occurrences = 0
-
-    # Iterate over every possible substring in the text with the same length as the pattern
-    for i in range(len(text)-len(pattern)+1):
-        
-        # If the current substring matches the pattern, increase the counter
+    count = 0
+    start_time = time.time()
+    for i in range(len(text) - len(pattern) + 1):
         if text[i:i+len(pattern)] == pattern:
-            occurrences += 1
+            count += 1
+    end_time = time.time()
+    print(f"Naive search took {(end_time-start_time)*1000:.4f} milliseconds")
+    return count
 
-    # Return the number of occurrences
-    return occurrences
 
