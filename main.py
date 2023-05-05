@@ -1,5 +1,5 @@
 from bryce_algorithm import boyer_moore_algorithm
-from mohammad_algorithm import xx_algorithm
+from mohammad_algorithm import naive_search_algorithm
 from execution_timer import ExecutionTimer
 
 def read_file(path):
@@ -20,17 +20,19 @@ def read_file(path):
     except FileNotFoundError as err:
         print(f'Unable to process file because it could not be found: {err}')
 
-#Create timer object
+# Create timer object
 timer = ExecutionTimer()
-#Driver Code
+# Driver code
+# -Initialize the constants
 SEARCH_PATTERN = "ababada"
 FILE = "input.txt"
 timer.start()
-occurrences = boyer_moore_algorithm(read_file(FILE), SEARCH_PATTERN)
+boyer_occurrences = boyer_moore_algorithm(read_file(FILE), SEARCH_PATTERN)
 timer.end()
-print(f'The pattern was found in the given text file {occurrences} times when using the Boyer-Moore Algorithm.')
+print(f'The pattern was found in the given text file {boyer_occurrences} times when using the Boyer-Moore Algorithm.')
 print(f'The Boyer-Moore Algorithm took {timer.print_exec_time():.2f} milliseconds to complete on the given text.')
 timer.start()
-xx_algorithm(FILE, SEARCH_PATTERN)
+naive_occurrences = naive_search_algorithm(read_file(FILE), SEARCH_PATTERN)
 timer.end()
-print(f'The xx_algorithm took {timer.print_exec_time():.2f} milliseconds to complete on the given text.')
+print(f'The pattern was found in the given text file {naive_occurrences} times when using the Naive Algorithm.')
+print(f'The Naive Algorithm took {timer.print_exec_time():.2f} milliseconds to complete on the given text.')
